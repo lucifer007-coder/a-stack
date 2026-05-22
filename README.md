@@ -6,6 +6,10 @@ AI coding without structure is chaos. A blank prompt gives you inconsistent resu
 
 Inspired by [gstack](https://github.com/garrytan/gstack) (95k+ ★) — Garry Tan's agent team for Claude Code — `a-stack` adapts the same opinionated philosophy for the **Antigravity** runtime. Six specialist agents, 30+ slash commands, all Markdown, all free.
 
+<p align="center">
+  <img src="demo.svg" alt="a-stack sprint flow demo" width="780">
+</p>
+
 > **Who this is for:**
 > - Founders and CEOs who still want to ship
 > - First-time Antigravity users — structured roles instead of a blank prompt
@@ -291,6 +295,7 @@ a-stack/
 ├── VERSION
 ├── install.sh               # One-line installer
 ├── setup                    # Main setup script
+├── demo.svg                 # Animated sprint flow demo
 ├── .gitignore
 ├── LICENSE                  # MIT
 └── README.md
