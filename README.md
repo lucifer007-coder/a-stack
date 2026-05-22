@@ -1,64 +1,30 @@
-<p align="center">
-  <img src="https://img.shields.io/badge/a--stack-v1.0.1-4ade80?style=flat-square&labelColor=0d0f14" alt="version">
-  <img src="https://img.shields.io/badge/license-MIT-67e8f9?style=flat-square&labelColor=0d0f14" alt="license">
-  <img src="https://img.shields.io/badge/platform-Google%20Antigravity-c084fc?style=flat-square&labelColor=0d0f14" alt="platform">
-  <img src="https://img.shields.io/badge/agents-6-fbbf24?style=flat-square&labelColor=0d0f14" alt="agents">
-  <img src="https://img.shields.io/badge/commands-30%2B-f87171?style=flat-square&labelColor=0d0f14" alt="commands">
-  <img src="https://img.shields.io/github/stars/lucifer007-coder/a-stack?style=flat-square&labelColor=0d0f14&color=4ade80" alt="stars">
-</p>
+# a-stack
 
-<h1 align="center">a-stack</h1>
-<p align="center"><strong>An opinionated, open-source multi-agent team for Google Antigravity.</strong></p>
-<p align="center">Like <a href="https://github.com/garrytan/gstack">gstack</a> for Claude Code — but built for the Antigravity runtime.</p>
+**An opinionated, open-source multi-agent team for Google Antigravity.**
 
----
+AI coding without structure is chaos. A blank prompt gives you inconsistent results, architectural drift, and code that works today but breaks tomorrow. `a-stack` fixes this.
 
-> AI coding without structure is chaos. A blank prompt gives you inconsistent results, architectural drift, and code that works today but breaks tomorrow. **a-stack** fixes this.
+Inspired by [gstack](https://github.com/garrytan/gstack) (95k+ ★) — Garry Tan's agent team for Claude Code — `a-stack` adapts the same opinionated philosophy for the **Antigravity** runtime. Six specialist agents, 30+ slash commands, all Markdown, all free.
+
+> **Who this is for:**
+> - Founders and CEOs who still want to ship
+> - First-time Antigravity users — structured roles instead of a blank prompt
+> - Tech leads — rigorous review, QA, and release automation on every PR
 >
-> Six specialist agents. 30+ slash commands. All Markdown. All free.
-
----
-
-## Demo
-
-> Open [`a-stack-demo.html`](a-stack-demo.html) in your browser to see the full sprint flow animated live — then screen-record it for your own use.
-
----
-
-## Who this is for
-
-| | |
-|---|---|
-| 🚀 **Founders & CEOs** | Still want to ship without hiring a full eng team |
-| 🆕 **First-time Antigravity users** | Structured agent roles instead of a blank prompt |
-| 🔧 **Tech leads** | Rigorous review, QA, and release automation on every PR |
-
-**Project size fit:**
-- **Lightweight** — for quick fixes, use standalone commands like `/review` or `/devex-review` directly.
-- **Full sprint** — for production features, run the full multi-agent Sprint Flow starting with `/office-hours`.
+> **Project Size Fit:**
+> - **Lightweight:** For simple scripts or quick fixes, use a-stack's standalone commands directly (like `/review` or `/devex-review`).
+> - **Full Sprint:** For production features and complex codebases, follow the full multi-agent **Sprint Flow** starting with `/office-hours` to prevent architectural drift.
 
 ---
 
 ## Quick Start
 
-```bash
-# 1. install
-curl -fsSL https://raw.githubusercontent.com/lucifer007-coder/a-stack/main/install.sh | bash
-
-# 2. scope your idea
-/office-hours
-
-# 3. challenge your plan
-/plan-ceo-review
-
-# 4. review your code
-/review
-
-# 5. ship it
-/ship
-```
-
-Stop there. You'll know if this is for you.
+1. **Install a-stack** (30 seconds — see below)
+2. Run `/office-hours` — describe what you're building
+3. Run `/plan-ceo-review` on any feature idea
+4. Run `/review` on any branch with changes
+5. Run `/qa` on your staging URL
+6. Stop there. You'll know if this is for you.
 
 ---
 
@@ -68,31 +34,31 @@ Stop there. You'll know if this is for you.
 
 - [Google Antigravity](https://cloud.google.com/antigravity) installed and configured
 - [Git](https://git-scm.com/)
-- Bash shell (macOS / Linux / WSL)
+- Bash shell (macOS/Linux/WSL)
 
-### Option A — one-line installer
+### Step 1: Install on your machine
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/lucifer007-coder/a-stack/main/install.sh | bash
 ```
 
-### Option B — clone manually
+Or clone manually:
 
 ```bash
 git clone --single-branch --depth 1 https://github.com/lucifer007-coder/a-stack.git ~/.astack
 cd ~/.astack && ./setup
 ```
 
-### Team mode (recommended)
+### Step 2: Team mode (recommended)
 
-Bootstrap your repo so every teammate gets a-stack automatically:
+From inside your repo, bootstrap so teammates get a-stack automatically:
 
 ```bash
 ~/.astack/setup --team
-git add .agents/ AGENTS.md && git commit -m "chore: add a-stack agent team"
+git add .agents/ AGENTS.md && git commit -m "require a-stack for AI-assisted work"
 ```
 
-No vendored files live in your repo. Every Antigravity session picks up skills from `.agents/skills/`.
+No vendored files in your repo. Every Antigravity session picks up skills from `.agents/skills/`.
 
 ---
 
@@ -129,95 +95,115 @@ Think → Plan → Architect → Design → Build → Review → Test → Ship �
 
 ---
 
-## 🎬 Live Walkthrough
+## 🎬 Live Demonstration
 
-### Step 1 — Strategy with `/office-hours`
+Here is how a real development session flows step-by-step through the **a-stack** multi-agent pipeline in Google Antigravity.
 
-The **Strategist (CEO)** challenges your idea before a single file is touched.
+### Step 1: Strategy Scoping with `/office-hours`
+The **Strategist (CEO)** challenges your ideas before any code is written to ensure you are building the right thing.
 
 > **User:** `/office-hours I want to build a user-facing analytics dashboard for a-stack usage metrics.`
 >
-> **🧠 Strategist (CEO):** Let's scope this. I'll ask **6 Forcing Questions** to lock the "why" and "what".
+> **🧠 Strategist (CEO):**
+> Let's scope this out. I'm going to ask you **6 Forcing Questions** one-by-one to lock down the "why" and "what".
 >
-> **Q1:** What is broken or missing *today*?
+> **Question 1:** What specific problem are we solving? (Not "improve metrics" — what is broken or missing today?)
 >
-> **User:** Developers have no visibility into skill call rates, pass/fail ratios, or latency bottlenecks. They're flying blind.
+> **User:** Developers have no visibility into how often their agents call individual skills, what the pass/fail rate is, or where the latency bottleneck lies. They are flying blind.
 >
-> **🧠 Strategist (CEO):** *(fast-forward — all 6 validated)*
+> **🧠 Strategist (CEO):**
+> Got it. That is a real pain point. Let's fast-forward: I've validated all 6 answers and compiled our strategy.
 >
-> *Writing strategy → `.astack/strategy.md`*
-> - **In-scope:** CLI dashboard — total runs, success rate, top 3 slowest skills
-> - **Out-of-scope:** real-time DB, external Web UI
-> - **Success metric:** load time < 2 seconds
+> *Writing Strategy Vision to `.astack/strategy.md`...* Done.
+> Here is a summary of the scoped MVP:
+> - **In-Scope:** Simple CLI dashboard displaying total runs, success/failure rate, and top 3 slowest skills.
+> - **Out-of-Scope:** Real-time database integration (we'll parse local `.astack/*.md` files instead), external Web UI.
+> - **Success Metric:** Under 2 seconds loading speed for the CLI report.
 
 ---
 
-### Step 2 — Planning with `/autoplan`
+### Step 2: Planning with `/autoplan`
+The **Conductor** reads your strategy and builds a phased implementation plan.
 
 > **User:** `/autoplan`
 >
-> **🧠 Conductor:** *Reading `.astack/strategy.md`… verified*
+> **🧠 Conductor:**
+> *Reading `.astack/strategy.md`...* Verified.
+> I have designed a 2-phase Master Implementation Plan:
 >
-> **Phase 1 — CLI State Parser** *(est. 4h)*
-> 1. Parse stats from `qa-report.md` + `review-report.md`
-> 2. Validate empty / malformed reports
+> *Writing master plan to `.astack/plan.md`...* Done.
 >
-> **Phase 2 — CLI Dashboard Output** *(est. 3h)*
-> 3. Tabular terminal UI with colour output
-> 4. Runtime benchmark enforces < 2s target
+> **Phase 1: CLI State Parser (Est: 4 hours)**
+> 1. Implement parser to extract stats from `.astack/qa-report.md` and `.astack/review-report.md`.
+> 2. Add validation for empty or malformed reports.
 >
-> *Writing plan → `.astack/plan.md`*
+> **Phase 2: CLI Dashboard Output (Est: 3 hours)**
+> 3. Create tabular terminal UI to render metrics beautifully using Vanilla CSS/Colors.
+> 4. Ensure runtime benchmark measures load speed (<2s).
+>
+> *Note: Task 3 involves terminal UI. Suggest running `/design-consultation` before starting.*
 
 ---
 
-### Step 3 — Architecture with `/plan-eng-review`
+### Step 3: Architecture Audit with `/plan-eng-review`
+The **Architect (Eng Manager)** locks down the tech stack and code boundaries before code is written.
 
 > **User:** `/plan-eng-review`
 >
-> **🏗️ Architect (EM):** *Reading `.astack/plan.md`… verified*
-> - File structure: `scripts/analytics.sh` + `scripts/utils.sh`
-> - Security: STRIDE analysis on local parser — passed ✓
+> **🏗️ Architect (EM):**
+> *Reading `.astack/plan.md`...* Verified.
+> I've locked down the architecture for Phase 1.
+> - **File Structure:** We will add `scripts/analytics.sh` and a parser utility under `scripts/utils.sh`.
+> - **Security Check:** `/cso` ran STRIDE analysis on the local parser to ensure it does not execute unauthorized state files.
 >
-> *Writing arch → `.astack/architecture.md` — clear to implement Phase 1*
+> *Writing architecture schema to `.astack/architecture.md`...* Done. You are clear to implement Phase 1.
 
 ---
 
-### Step 4 — Code Review with `/review`
+### Step 4: Quality & PR Audits with `/review`
+Once the code is written, the **Architect** performs a thorough code quality audit.
 
 > **User:** `/review`
 >
-> **🏗️ Architect (EM):** *Running `git diff --name-only`…*
-> - ✓ Handles missing files without crashing
-> - ✓ 3 unit tests added for empty report states
-> - ✓ Linter clean
+> **🏗️ Architect (EM):**
+> *Running `git diff --name-only`...* Found changes in `scripts/analytics.sh`.
+> - **Logic check:** Parser correctly handles missing files without crashing.
+> - **Test check:** Added 3 unit tests covering empty report states.
 >
-> **Verdict: 9/10 PASS** — *Writing report → `.astack/review-report.md`*
+> **Verdict: 9/10 (PASS)**
+> *Writing review details to `.astack/review-report.md`...* Done. Ready for QA!
 
 ---
 
-### Step 5 — Release with `/ship`
+### Step 5: Preparing the Release with `/ship`
+The **SRE (Release Manager)** takes over, running automated tests, generating the changelog, and preparing the version bump.
 
 > **User:** `/ship`
 >
-> **🚀 SRE (Release Manager):** *QA PASS · Review 9/10 · all gates green*
-> - `./scripts/test-runner.sh` → **passed**
-> - `./scripts/lint.sh` → **clean**
-> - Version bump: `v1.0.0` → `v1.0.1` (patch)
-> - `CHANGELOG.md` updated · release commit created
+> **🚀 SRE (Release Manager):**
+> *Reading `.astack/review-report.md` and `.astack/qa-report.md`...* All verified (QA PASS, Review 9/10).
+> - Running test suite via `./scripts/test-runner.sh`... **Passed.**
+> - Running linter via `./scripts/lint.sh`... **No issues.**
+> - Bumping version: `v1.0.0` ➔ `v1.0.1` (patch bump).
+> - Updating `CHANGELOG.md` with new features and fixes.
+> - Creating release commit: `release: v1.0.1`... Done.
 >
-> *Writing status → `.astack/deploy-status.md` — ready to deploy*
+> *Writing deploy status to `.astack/deploy-status.md`...* Done. Ready to deploy!
 
 ---
 
-### Step 6 — Retro with `/retro`
+### Step 6: Capturing Insights with `/retro`
+Finally, the **Doc Engineer** records the sprint retro so the team's shared memory gets smarter.
 
 > **User:** `/retro`
 >
 > **📚 Doc Engineer:**
-> - `grep/sed` parser is 3× faster than a JS script — load time well under 2s target
-> - Empty-state guard in Phase 1 prevented a UI crash later
+> Let's record the learnings from this sprint.
 >
-> *Writing memory → `.astack/memory.md`*
+> *Writing retrospective insights to `.astack/memory.md`...* Done.
+> **Key Lessons Learned:**
+> - Parsing `.astack/*.md` using native `grep/sed` is much faster than running a heavy JS parser script, maintaining our load speed well below the 2s target.
+> - Capturing empty state edge cases in Phase 1 prevented a potential UI crash in the dashboard.
 
 ---
 
@@ -297,7 +283,6 @@ a-stack/
 │   ├── skills.md            # Deep dive on each skill
 │   ├── ADDING_A_HOST.md     # How to add a new agent host
 │   └── CONTRIBUTING.md      # How to contribute
-├── a-stack-demo.html        # Animated terminal demo — open in any browser
 ├── AGENTS.md                # Root configuration (≈ gstack's CLAUDE.md)
 ├── ARCHITECTURE.md          # Technical architecture
 ├── ETHOS.md                 # Philosophy — why opinionated agents win
@@ -326,29 +311,22 @@ Read [ETHOS.md](ETHOS.md) for the full manifesto. The short version:
 
 ## Contributing
 
-The fastest way to grow a-stack is to add a skill that's missing from your own workflow.
+See [docs/CONTRIBUTING.md](docs/CONTRIBUTING.md). The quick version:
 
-**The bar is intentionally low:**
-
-1. Copy `SKILL.md.tmpl` into `.agents/skills/<your-skill>/SKILL.md`
-2. Fill in: trigger phrases, agent role, step-by-step directives
-3. Test it in Antigravity — does the agent behave consistently?
-4. Open a PR with a one-line description of what the skill does
-
-**Good first skills to add:** `/debug-trace`, `/db-migrate`, `/accessibility-audit`, `/i18n-check`
-
-See [docs/CONTRIBUTING.md](docs/CONTRIBUTING.md) for the full guide.
+1. Copy `SKILL.md.tmpl` into a new directory under `.agents/skills/<your-skill>/`
+2. Write specific triggers, an opinionated role, and step-by-step directives
+3. Test it by running the trigger phrases in Antigravity
+4. Submit a PR
 
 ---
 
 ## License
 
-MIT — free forever. Fork it, improve it, make it yours.
+MIT — free forever, fork it, improve it, make it yours.
 
 ---
 
 <p align="center">
   <strong>a-stack</strong> · Open-source agent team for Google Antigravity<br>
-  Inspired by <a href="https://github.com/garrytan/gstack">garrytan/gstack</a> (95k+ ★)<br><br>
-  <a href="https://github.com/lucifer007-coder/a-stack/stargazers">⭐ Star this repo if it saves you time</a>
+  Inspired by <a href="https://github.com/garrytan/gstack">garrytan/gstack</a>
 </p>
