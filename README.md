@@ -10,7 +10,7 @@ Inspired by [gstack](https://github.com/garrytan/gstack) (95k+ ★) — Garry Ta
 > - Founders and CEOs who still want to ship
 > - First-time Antigravity users — structured roles instead of a blank prompt
 > - Tech leads — rigorous review, QA, and release automation on every PR
-> 
+>
 > **Project Size Fit:**
 > - **Lightweight:** For simple scripts or quick fixes, use a-stack's standalone commands directly (like `/review` or `/devex-review`).
 > - **Full Sprint:** For production features and complex codebases, follow the full multi-agent **Sprint Flow** starting with `/office-hours` to prevent architectural drift.
@@ -39,13 +39,13 @@ Inspired by [gstack](https://github.com/garrytan/gstack) (95k+ ★) — Garry Ta
 ### Step 1: Install on your machine
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/your-org/a-stack/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/lucifer007-coder/a-stack/main/install.sh | bash
 ```
 
 Or clone manually:
 
 ```bash
-git clone --single-branch --depth 1 https://github.com/your-org/a-stack.git ~/.astack
+git clone --single-branch --depth 1 https://github.com/lucifer007-coder/a-stack.git ~/.astack
 cd ~/.astack && ./setup
 ```
 
@@ -104,16 +104,16 @@ The **Strategist (CEO)** challenges your ideas before any code is written to ens
 
 > **User:** `/office-hours I want to build a user-facing analytics dashboard for a-stack usage metrics.`
 >
-> **🧠 Strategist (CEO):** 
+> **🧠 Strategist (CEO):**
 > Let's scope this out. I'm going to ask you **6 Forcing Questions** one-by-one to lock down the "why" and "what".
-> 
+>
 > **Question 1:** What specific problem are we solving? (Not "improve metrics" — what is broken or missing today?)
-> 
+>
 > **User:** Developers have no visibility into how often their agents call individual skills, what the pass/fail rate is, or where the latency bottleneck lies. They are flying blind.
 >
 > **🧠 Strategist (CEO):**
 > Got it. That is a real pain point. Let's fast-forward: I've validated all 6 answers and compiled our strategy.
-> 
+>
 > *Writing Strategy Vision to `.astack/strategy.md`...* Done.
 > Here is a summary of the scoped MVP:
 > - **In-Scope:** Simple CLI dashboard displaying total runs, success/failure rate, and top 3 slowest skills.
@@ -130,17 +130,17 @@ The **Conductor** reads your strategy and builds a phased implementation plan.
 > **🧠 Conductor:**
 > *Reading `.astack/strategy.md`...* Verified.
 > I have designed a 2-phase Master Implementation Plan:
-> 
+>
 > *Writing master plan to `.astack/plan.md`...* Done.
-> 
+>
 > **Phase 1: CLI State Parser (Est: 4 hours)**
 > 1. Implement parser to extract stats from `.astack/qa-report.md` and `.astack/review-report.md`.
 > 2. Add validation for empty or malformed reports.
-> 
+>
 > **Phase 2: CLI Dashboard Output (Est: 3 hours)**
 > 3. Create tabular terminal UI to render metrics beautifully using Vanilla CSS/Colors.
 > 4. Ensure runtime benchmark measures load speed (<2s).
-> 
+>
 > *Note: Task 3 involves terminal UI. Suggest running `/design-consultation` before starting.*
 
 ---
@@ -152,10 +152,10 @@ The **Architect (Eng Manager)** locks down the tech stack and code boundaries be
 >
 > **🏗️ Architect (EM):**
 > *Reading `.astack/plan.md`...* Verified.
-> I've locked down the architecture for Phase 1. 
+> I've locked down the architecture for Phase 1.
 > - **File Structure:** We will add `scripts/analytics.sh` and a parser utility under `scripts/utils.sh`.
 > - **Security Check:** `/cso` ran STRIDE analysis on the local parser to ensure it does not execute unauthorized state files.
-> 
+>
 > *Writing architecture schema to `.astack/architecture.md`...* Done. You are clear to implement Phase 1.
 
 ---
@@ -169,7 +169,7 @@ Once the code is written, the **Architect** performs a thorough code quality aud
 > *Running `git diff --name-only`...* Found changes in `scripts/analytics.sh`.
 > - **Logic check:** Parser correctly handles missing files without crashing.
 > - **Test check:** Added 3 unit tests covering empty report states.
-> 
+>
 > **Verdict: 9/10 (PASS)**
 > *Writing review details to `.astack/review-report.md`...* Done. Ready for QA!
 
@@ -187,7 +187,7 @@ The **SRE (Release Manager)** takes over, running automated tests, generating th
 > - Bumping version: `v1.0.0` ➔ `v1.0.1` (patch bump).
 > - Updating `CHANGELOG.md` with new features and fixes.
 > - Creating release commit: `release: v1.0.1`... Done.
-> 
+>
 > *Writing deploy status to `.astack/deploy-status.md`...* Done. Ready to deploy!
 
 ---
@@ -199,7 +199,7 @@ Finally, the **Doc Engineer** records the sprint retro so the team's shared memo
 >
 > **📚 Doc Engineer:**
 > Let's record the learnings from this sprint.
-> 
+>
 > *Writing retrospective insights to `.astack/memory.md`...* Done.
 > **Key Lessons Learned:**
 > - Parsing `.astack/*.md` using native `grep/sed` is much faster than running a heavy JS parser script, maintaining our load speed well below the 2s target.
