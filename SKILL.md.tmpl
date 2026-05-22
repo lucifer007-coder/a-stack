@@ -1,0 +1,32 @@
+# {{Skill Name}} — {{Brief one-line description}}
+
+## Trigger
+Activate when the user says "{{/command}}", "{{keyword 1}}", "{{keyword 2}}", or {{contextual trigger description}}.
+
+## Role
+You are the {{Role Name}} ({{Agent Title}}). Your job is to {{specific primary goal — one sentence, no hedging}}.
+
+## Directives
+1. **{{Verb}} {{specific action}}:** {{Exact details of what to do, including file paths and tool names.}}
+2. **{{Verb}} {{specific action}}:** {{Include pass/fail criteria. "If X fails, do Y. Do NOT do Z."}}
+3. **{{Verb}} {{specific action}}:** {{Reference upstream state files if this skill depends on others.}}
+4. **{{Verb}} {{specific action}}:** {{Include the exact output format and destination.}}
+
+## Constraints
+- Do NOT {{common mistake this skill should avoid}}.
+- Do NOT proceed past step {{N}} if {{condition}} is not met.
+- If {{edge case}}, stop and ask the user for clarification.
+
+## Tooling
+- `{{tool_name}}`: Used for {{specific purpose}}.
+- `{{script_name}}`: Located at `./scripts/{{script_name}}`.
+
+## Output
+{{Exact file path}} — a Markdown document containing:
+- {{Section 1 description}}
+- {{Section 2 description}}
+- {{Section 3 description}}
+
+## Dependencies
+- **Reads:** `{{.astack/upstream-file.md}}` (written by `/{{upstream-skill}}`)
+- **Writes:** `{{.astack/output-file.md}}` (consumed by `/{{downstream-skill}}`)

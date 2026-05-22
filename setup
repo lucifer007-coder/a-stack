@@ -1,0 +1,88 @@
+#!/usr/bin/env bash
+# a-stack setup script
+set -euo pipefail
+
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+BLUE='\033[0;34m'
+YELLOW='\033[1;33m'
+NC='\033[0m'
+
+# Default to local if no args provided
+MODE="local"
+if [ "${1:-}" == "--global" ]; then
+  MODE="global"
+elif [ "${1:-}" == "--team" ]; then
+  MODE="team"
+fi
+
+echo -e "${BLUE}Configuring a-stack in ${MODE} mode...${NC}"
+
+# Find the source directory containing this setup script
+SRC_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Define paths
+GLOBAL_SKILLS_DIR="$HOME/.config/antigravity/skills"
+LOCAL_SKILLS_DIR=".agents/skills"
+LOCAL_ASTACK_DIR=".astack"
+
+# Helper to check if two paths are the same directory
+is_same_dir() {
+  local dir1 dir2
+  dir1="$(cd "$1" 2>/dev/null && pwd)"
+  dir2="$(cd "$2" 2>/dev/null && pwd)"
+  [ -n "$dir1" ] && [ "$dir1" = "$dir2" ]
+}
+
+if [ "$MODE" == "global" ]; then
+  echo -e "🌐 Installing to global Antigravity skills path..."
+  mkdir -p "$GLOBAL_SKILLS_DIR"
+  cp -r "$SRC_DIR/.agents/skills"/* "$GLOBAL_SKILLS_DIR/"
+  echo -e "${GREEN}✓ Global skills installed to $GLOBAL_SKILLS_DIR${NC}"
+
+elif [ "$MODE" == "team" ] || [ "$MODE" == "local" ]; then
+  echo -e "📁 Installing to local project..."
+  
+  # Ensure local directories exist
+  mkdir -p "$LOCAL_SKILLS_DIR"
+  mkdir -p "$LOCAL_ASTACK_DIR"
+  
+  # Copy skills from source directory if different
+  if ! is_same_dir "$SRC_DIR/.agents/skills" "$LOCAL_SKILLS_DIR"; then
+    cp -r "$SRC_DIR/.agents/skills"/* "$LOCAL_SKILLS_DIR/"
+  fi
+  
+  # Copy AGENTS.md if it doesn't exist
+  if [ ! -f "AGENTS.md" ]; then
+    cp "$SRC_DIR/AGENTS.md" ./
+    echo -e "${GREEN}✓ Created AGENTS.md root configuration${NC}"
+  elif ! is_same_dir "$SRC_DIR" "."; then
+    cp -n "$SRC_DIR/AGENTS.md" ./ 2>/dev/null || true
+  fi
+  
+  # Copy scripts if different
+  if ! is_same_dir "$SRC_DIR/scripts" "./scripts"; then
+    mkdir -p scripts
+    cp "$SRC_DIR/scripts"/*.sh scripts/
+  fi
+  
+  # Make local scripts executable
+  chmod +x scripts/*.sh
+  
+  # Ensure .astack is gitignored
+  if [ -f ".gitignore" ]; then
+    if ! grep -q "^.astack/" ".gitignore"; then
+      # Ensure there is a trailing newline in the existing file before appending
+      [ -n "$(tail -c1 .gitignore 2>/dev/null)" ] && echo "" >> .gitignore
+      echo ".astack/" >> .gitignore
+      echo -e "${GREEN}✓ Added .astack/ to .gitignore${NC}"
+    fi
+  else
+    echo ".astack/" > .gitignore
+    echo -e "${GREEN}✓ Created .gitignore and ignored .astack/${NC}"
+  fi
+  
+  echo -e "${GREEN}✓ Local skills installed to $LOCAL_SKILLS_DIR${NC}"
+fi
+
+echo -e "${GREEN}✅ Setup complete!${NC}"
