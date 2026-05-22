@@ -1,0 +1,180 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 520" width="780" height="520" font-family="'JetBrains Mono',monospace">
+  <defs>
+    <style>
+      .bg   { fill: #0d0f14; }
+      .surf { fill: #131720; }
+      .tb   { fill: #0d0f14; }
+      .bdr  { fill: none; stroke: #1e2535; stroke-width: 1; }
+
+      text  { font-family: 'JetBrains Mono','Courier New',monospace; font-size: 12px; }
+      .grn  { fill: #4ade80; }
+      .cyn  { fill: #67e8f9; }
+      .ylw  { fill: #fbbf24; }
+      .prp  { fill: #c084fc; }
+      .wht  { fill: #e2e8f0; }
+      .dim  { fill: #4b5563; }
+      .pmt  { fill: #22d3ee; }
+      .itl  { font-style: italic; }
+      .bld  { font-weight: 700; }
+
+      /* cursor blink */
+      .cursor { fill: #4ade80; animation: blink 1s step-end infinite; }
+      @keyframes blink { 50% { opacity: 0; } }
+
+      /* ── each line fades in at its cue ── */
+      .l  { opacity: 0; animation: show 0s forwards; }
+      @keyframes show { to { opacity: 1; } }
+
+      .l00 { animation-delay: 0.4s; }
+      .l01 { animation-delay: 0.5s; }
+      .l02 { animation-delay: 0.6s; }
+
+      .l03 { animation-delay: 1.2s; }
+      .l04 { animation-delay: 1.4s; }
+      .l05 { animation-delay: 1.9s; }
+      .l06 { animation-delay: 2.1s; }
+      .l07 { animation-delay: 2.4s; }
+      .l08 { animation-delay: 3.0s; }
+      .l09 { animation-delay: 3.5s; }
+      .l10 { animation-delay: 3.7s; }
+      .l11 { animation-delay: 3.9s; }
+
+      .l12 { animation-delay: 4.6s; }
+      .l13 { animation-delay: 4.8s; }
+      .l14 { animation-delay: 5.2s; }
+      .l15 { animation-delay: 5.4s; }
+      .l16 { animation-delay: 5.6s; }
+      .l17 { animation-delay: 5.8s; }
+      .l18 { animation-delay: 6.0s; }
+      .l19 { animation-delay: 6.3s; }
+
+      .l20 { animation-delay: 7.0s; }
+      .l21 { animation-delay: 7.2s; }
+      .l22 { animation-delay: 7.6s; }
+      .l23 { animation-delay: 7.8s; }
+      .l24 { animation-delay: 8.0s; }
+      .l25 { animation-delay: 8.3s; }
+
+      .l26 { animation-delay: 9.0s; }
+      .l27 { animation-delay: 9.2s; }
+      .l28 { animation-delay: 9.6s; }
+      .l29 { animation-delay: 9.8s; }
+      .l30 { animation-delay:10.0s; }
+      .l31 { animation-delay:10.3s; }
+
+      .l32 { animation-delay:11.0s; }
+      .l33 { animation-delay:11.2s; }
+      .l34 { animation-delay:11.5s; }
+      .l35 { animation-delay:11.7s; }
+      .l36 { animation-delay:11.9s; }
+      .l37 { animation-delay:12.1s; }
+      .l38 { animation-delay:12.4s; }
+
+      .l39 { animation-delay:13.0s; }
+      .l40 { animation-delay:13.2s; }
+      .l41 { animation-delay:13.5s; }
+      .l42 { animation-delay:13.7s; }
+      .l43 { animation-delay:13.9s; }
+
+      .l44 { animation-delay:14.4s; }
+      .l45 { animation-delay:14.6s; }
+      .l46 { animation-delay:14.8s; }
+      .l47 { animation-delay:15.0s; }
+      .l48 { animation-delay:15.2s; }
+    </style>
+  </defs>
+
+  <!-- window chrome -->
+  <rect width="780" height="520" rx="10" class="surf"/>
+  <rect width="780" height="38" rx="10" class="tb"/>
+  <rect y="10" width="780" height="28" class="tb"/>
+  <rect x="0.5" y="0.5" width="779" height="519" rx="9.5" class="bdr"/>
+  <rect x="0" y="37.5" width="780" height="1" fill="#1e2535"/>
+
+  <!-- traffic lights -->
+  <circle cx="20" cy="19" r="6" fill="#ff5f57"/>
+  <circle cx="40" cy="19" r="6" fill="#febc2e"/>
+  <circle cx="60" cy="19" r="6" fill="#28c840"/>
+
+  <!-- title -->
+  <text x="390" y="24" text-anchor="middle" class="dim" font-size="11">a-stack · sprint flow demo</text>
+
+  <!-- terminal area -->
+  <rect x="0" y="38" width="780" height="482" class="bg"/>
+
+  <!-- ── CONTENT ── base y=62, line-height=17 ── -->
+
+  <!-- header box -->
+  <text x="22" y="62"  class="l l00 dim">╭──────────────────────────────────────────────╮</text>
+  <text x="22" y="79"  class="l l01">
+    <tspan class="dim">│  </tspan><tspan class="grn bld">▲ a-stack</tspan><tspan class="dim">  v1.0.1  ·  google antigravity        │</tspan>
+  </text>
+  <text x="22" y="96"  class="l l02 dim">╰──────────────────────────────────────────────╯</text>
+
+  <!-- ── STEP 1 ── -->
+  <text x="22" y="118" class="l l03 cyn bld">── step 1 of 6: strategy ──────────────────────</text>
+
+  <text x="22" y="138" class="l l04">
+    <tspan class="dim">$ </tspan><tspan class="grn bld">/office-hours</tspan><tspan class="wht">  analytics dashboard for a-stack</tspan>
+  </text>
+
+  <text x="22" y="158" class="l l05 prp bld">🧠 Strategist (CEO)</text>
+  <text x="22" y="174" class="l l06 dim itl">   Running 6 Forcing Questions to lock the "why"…</text>
+
+  <text x="22" y="191" class="l l07">
+    <tspan class="ylw">   Q1 → </tspan><tspan class="wht">What is broken or missing </tspan><tspan class="grn">today</tspan><tspan class="wht">?</tspan>
+  </text>
+  <text x="22" y="207" class="l l08">
+    <tspan class="dim">$ </tspan><tspan class="wht">Devs have zero visibility into skill latency or fail rates.</tspan>
+  </text>
+  <text x="22" y="223" class="l l09 dim itl">   [ questions 2–6 validated ✓ ]</text>
+  <text x="22" y="239" class="l l10">
+    <tspan class="grn">   ✓ strategy → </tspan><tspan class="dim">.astack/strategy.md  </tspan><tspan class="grn">  MVP scoped · load &lt; 2s</tspan>
+  </text>
+
+  <!-- divider -->
+  <text x="22" y="256" class="l l11 dim">──────────────────────────────────────────────</text>
+
+  <!-- ── STEP 2 ── -->
+  <text x="22" y="273" class="l l12 cyn bld">── step 2 of 6: planning ──────────────────────</text>
+
+  <text x="22" y="291" class="l l13">
+    <tspan class="dim">$ </tspan><tspan class="grn bld">/autoplan</tspan>
+  </text>
+  <text x="22" y="307" class="l l14 prp bld">🧠 Conductor</text>
+  <text x="22" y="323" class="l l15">
+    <tspan class="ylw">   Phase 1  </tspan><tspan class="wht">CLI State Parser        </tspan><tspan class="dim">est 4h</tspan>
+  </text>
+  <text x="22" y="339" class="l l16">
+    <tspan class="ylw">   Phase 2  </tspan><tspan class="wht">CLI Dashboard Output    </tspan><tspan class="dim">est 3h</tspan>
+  </text>
+  <text x="22" y="355" class="l l17">
+    <tspan class="grn">   ✓ plan → </tspan><tspan class="dim">.astack/plan.md</tspan>
+  </text>
+
+  <!-- divider -->
+  <text x="22" y="371" class="l l18 dim">──────────────────────────────────────────────</text>
+
+  <!-- ── STEP 3 ── -->
+  <text x="22" y="388" class="l l19 cyn bld">── step 3 of 6: architecture ──────────────────</text>
+
+  <text x="22" y="406" class="l l20">
+    <tspan class="dim">$ </tspan><tspan class="grn bld">/plan-eng-review</tspan>
+  </text>
+  <text x="22" y="422" class="l l21 cyn bld">🏗  Architect (EM)</text>
+  <text x="22" y="438" class="l l22">
+    <tspan class="dim">   structure → </tspan><tspan class="wht">scripts/analytics.sh + utils.sh</tspan>
+  </text>
+  <text x="22" y="454" class="l l23">
+    <tspan class="dim">   security  → </tspan><tspan class="wht">STRIDE analysis  </tspan><tspan class="grn">passed ✓</tspan>
+  </text>
+  <text x="22" y="470" class="l l24">
+    <tspan class="grn">   ✓ arch → </tspan><tspan class="dim">.astack/architecture.md  </tspan><tspan class="grn">  clear to build</tspan>
+  </text>
+
+  <!-- divider -->
+  <text x="22" y="486" class="l l25 dim">──────────────────────────────────────────────</text>
+
+  <!-- cursor -->
+  <rect x="22" y="498" width="7" height="13" class="cursor l l25"/>
+</svg>
