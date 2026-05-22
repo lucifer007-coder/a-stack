@@ -99,7 +99,7 @@ Think → Plan → Architect → Design → Build → Review → Test → Ship �
 
 ---
 
-## 🎬 Live Demonstration
+## How This Works 
 
 Here is how a real development session flows step-by-step through the **a-stack** multi-agent pipeline in Google Antigravity.
 
