@@ -21,9 +21,7 @@
 
 ## Demo
 
-[![a-stack demo](https://asciinema.org/a/YOUR_ID.svg)](https://asciinema.org/a/YOUR_ID)
-
-> **Record your own:** download [`demo.sh`](scripts/demo.sh), run `asciinema rec a-stack-demo.cast --overwrite -c ./demo.sh`, then `asciinema upload a-stack-demo.cast` and replace `YOUR_ID` above.
+> Open [`a-stack-demo.html`](a-stack-demo.html) in your browser to see the full sprint flow animated live — then screen-record it for your own use.
 
 ---
 
@@ -292,7 +290,6 @@ a-stack/
 │   ├── ship/SKILL.md
 │   └── ... (29 skills total)
 ├── scripts/                 # Shared helper scripts
-│   ├── demo.sh              # asciinema demo script
 │   ├── test-runner.sh
 │   ├── lint.sh
 │   └── deploy-check.sh
@@ -300,6 +297,7 @@ a-stack/
 │   ├── skills.md            # Deep dive on each skill
 │   ├── ADDING_A_HOST.md     # How to add a new agent host
 │   └── CONTRIBUTING.md      # How to contribute
+├── a-stack-demo.html        # Animated terminal demo — open in any browser
 ├── AGENTS.md                # Root configuration (≈ gstack's CLAUDE.md)
 ├── ARCHITECTURE.md          # Technical architecture
 ├── ETHOS.md                 # Philosophy — why opinionated agents win
